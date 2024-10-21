@@ -5,6 +5,14 @@ AWS_WAF_Block_Rule_Token_User
 - Field to match: Single header (authorization)
 - Positional constraint: Exactly matches string
 - Search string: Bearer
+- Action: Block
+- Custom response code: 401
+- Custom response body: block_token_invalid
+{
+  "status": 401,
+  "error": "Token Invalido",
+  "message": "Token Invalido"
+}
 
 **Regular rule (AWS WAF) URI path (Regular expression)**
 - Field to match: URI path
@@ -20,3 +28,11 @@ AWS_WAF_Block_Rule_Token_User
 - Positional constraint: Exactly matches string
 - Search string: user
 - Oversize handling: No match - Treat the web request as not matching the rule statement
+- Action: Block
+- Custom response code: 401
+- Custom response body: usuario_incorreto
+{
+  "status": 401,
+  "error": "Não autorizado",
+  "message": "Usuário incorreto"
+}
